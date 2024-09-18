@@ -1,3 +1,29 @@
+let currentTab = 1;
+
+function showTab(tabIndex) {
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach((tab, index) => {
+        tab.style.display = index === tabIndex - 1 ? 'block' : 'none';
+    });
+}
+
+function nextTab(tabIndex) {
+    if (tabIndex > currentTab) {
+        const currentInputs = document.querySelectorAll(`input[name="q${currentTab}"]`);
+        if (![...currentInputs].some(input => input.checked)) {
+            alert('Por favor, selecione uma opção antes de continuar.');
+            return;
+        }
+    }
+    currentTab = tabIndex;
+    showTab(currentTab);
+}
+
+function prevTab(tabIndex) {
+    currentTab = tabIndex;
+    showTab(currentTab);
+}
+
 function calculateResult() {
     const answers = {
         A: 0,
@@ -26,24 +52,26 @@ function calculateResult() {
     let imageUrl = '';
     switch (maxAnswer) {
         case 'A':
-            resultText = 'Você é o Tom Holland';
-            imageUrl = 'images/tom_holland.jpg'; // Caminho para a imagem local
+            resultText = '';
+            imageUrl = 'images/1Untitled Project.jpg';
             break;
         case 'B':
             resultText = 'Você é o Tobey Maguire';
-            imageUrl = 'images/toby_maguire.jpg'; // Caminho para a imagem local
+            imageUrl = 'images/tobey_maguire.jpg';
             break;
         case 'C':
-            resultText = 'Você é o Andrew Garfield';
-            imageUrl = 'images/andrew_garfield.jpg'; // Caminho para a imagem local
+            resultText = '';
+            imageUrl = 'images/Untitled Project.jpg';
             break;
         case 'D':
             resultText = 'Você é o Miles Morales';
-            imageUrl = 'images/miles_morales.jpg'; // Caminho para a imagem local
+            imageUrl = 'images/miles_morales.jpg';
             break;
     }
 
     document.getElementById('result').innerText = resultText;
-    document.getElementById('result-image').innerHTML = `<img src="${imageUrl}" alt="${resultText}" style="width: 300px; height: auto;">`;
+    document.getElementById('result').innerHTML += `<img src="${imageUrl}" alt="${resultText}" style="width: 300px; height: auto;">`;
 }
 
+// Inicializa o quiz mostrando a primeira aba
+showTab(currentTab);
