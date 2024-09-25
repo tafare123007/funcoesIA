@@ -53,18 +53,18 @@ function calculateResult() {
     switch (maxAnswer) {
         case 'A':
             resultText = '';
-            imageUrl = 'images/1Untitled Project.jpg';
+            imageUrl = 'images/tom-holland.jpg';
             break;
         case 'B':
-            resultText = 'Você é o Tobey Maguire';
+            resultText = '';
             imageUrl = 'images/tobey_maguire.jpg';
             break;
         case 'C':
             resultText = '';
-            imageUrl = 'images/Untitled Project.jpg';
+            imageUrl = 'images/andrew_garfield.jpg';
             break;
         case 'D':
-            resultText = 'Você é o Miles Morales';
+            resultText = '';
             imageUrl = 'images/miles_morales.jpg';
             break;
     }
