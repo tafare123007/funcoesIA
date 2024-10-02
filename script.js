@@ -73,5 +73,4 @@ function calculateResult() {
     document.getElementById('result').innerHTML += `<img src="${imageUrl}" alt="${resultText}" style="width: 300px; height: auto;">`;
 }
 
-// Inicializa o quiz mostrando a primeira aba
 showTab(currentTab);
